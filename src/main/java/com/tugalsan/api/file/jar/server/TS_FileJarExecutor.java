@@ -2,11 +2,11 @@ package com.tugalsan.api.file.jar.server;
 
 import com.tugalsan.api.file.properties.server.TS_FilePropertiesUtils;
 import com.tugalsan.api.file.server.TS_FileUtils;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.log.server.TS_Log;
 import com.tugalsan.api.os.server.TS_OsJavaUtils;
 import com.tugalsan.api.random.server.TS_RandomUtils;
-import com.tugalsan.api.unsafe.client.TGS_UnSafe;
+import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class TS_FileJarExecutor {
         return "\"" + path.toAbsolutePath() + "\"";
     }
 
-    public TS_FileJarExecutor(Path pathJar, TGS_Func_In1<List<String>> args_0fileJavaExe_1tagJar_2jarPath_3fileConfig, List<Path> filesToBeCopiedToTmp, List<TS_FilePropertiesUtils> executionParams) {
-        TGS_UnSafe.run(() -> {
+    public TS_FileJarExecutor(Path pathJar, TGS_FuncMTUCE_In1<List<String>> args_0fileJavaExe_1tagJar_2jarPath_3fileConfig, List<Path> filesToBeCopiedToTmp, List<TS_FilePropertiesUtils> executionParams) {
+        TGS_FuncMTCEUtils.run(() -> {
             var pathTmp = Files.createTempDirectory("tmp").toAbsolutePath();
             filesToBeCopiedToTmp.forEach(orgFile -> {
                 var tmpFile = pathTmp.resolve(TS_RandomUtils.nextUUIDType4());

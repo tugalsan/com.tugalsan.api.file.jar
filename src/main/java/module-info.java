@@ -1,6 +1,6 @@
 module com.tugalsan.api.file.jar {
     requires com.tugalsan.api.log;
-    requires com.tugalsan.api.unsafe;
+    
     requires com.tugalsan.api.file;
     requires com.tugalsan.api.file.properties;
     requires com.tugalsan.api.function;
