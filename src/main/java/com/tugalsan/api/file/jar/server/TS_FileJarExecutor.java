@@ -1,5 +1,6 @@
 package com.tugalsan.api.file.jar.server;
 
+import com.tugalsan.api.file.properties.server.TS_FilePropertiesItem;
 import com.tugalsan.api.file.properties.server.TS_FilePropertiesUtils;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
@@ -14,14 +15,17 @@ import java.util.List;
 
 public class TS_FileJarExecutor {
 
-    final private static TS_Log d = TS_Log.of(TS_FileJarExecutor.class);
-
+    private static TS_Log d() {
+        return d.orElse(TS_Log.of(TS_FileJarExecutor.class));
+    }
+    final private static StableValue<TS_Log> d = StableValue.of();
     final public Path pathDriver;
 
     private static String inQuotes(Path path) {
         return "\"" + path.toAbsolutePath() + "\"";
     }
 
+    @Deprecated //TODO
     public TS_FileJarExecutor(Path pathJar, TGS_FuncMTU_In1<List<String>> args_0fileJavaExe_1tagJar_2jarPath_3fileConfig, List<Path> filesToBeCopiedToTmp, List<TS_FilePropertiesUtils> executionParams) {
         TGS_FuncMTCUtils.run(() -> {
             var pathTmp = Files.createTempDirectory("tmp").toAbsolutePath();
@@ -36,7 +40,7 @@ public class TS_FileJarExecutor {
             _args.add("-jar");
             _args.add(inQuotes(pathJar));
         });
-
+        var items = new ArrayList<TS_FilePropertiesItem>();
         TS_FilePropertiesUtils.setAllItems(filesToBeCopiedToTmp, items, true);
         this.pathDriver = pathJar;
     }
