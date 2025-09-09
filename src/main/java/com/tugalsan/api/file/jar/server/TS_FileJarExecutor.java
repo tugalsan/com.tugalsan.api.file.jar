@@ -12,13 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class TS_FileJarExecutor {
 
-    private static TS_Log d() {
-        return d.orElse(TS_Log.of(TS_FileJarExecutor.class));
-    }
-    final private static StableValue<TS_Log> d = StableValue.of();
+    final private static Supplier<TS_Log> d = StableValue.supplier(() -> TS_Log.of(TS_FileJarExecutor.class));
     final public Path pathDriver;
 
     private static String inQuotes(Path path) {
