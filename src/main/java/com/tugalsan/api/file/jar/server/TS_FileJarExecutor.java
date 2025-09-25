@@ -1,16 +1,13 @@
 package com.tugalsan.api.file.jar.server;
 
-import com.tugalsan.api.file.properties.server.TS_FilePropertiesItem;
-import com.tugalsan.api.file.properties.server.TS_FilePropertiesUtils;
-import com.tugalsan.api.file.server.TS_FileUtils;
-import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
-import com.tugalsan.api.log.server.TS_Log;
-import com.tugalsan.api.os.server.TS_OsJavaUtils;
-import com.tugalsan.api.random.server.TS_RandomUtils;
-import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
+import module com.tugalsan.api.file.properties;
+import module com.tugalsan.api.file;
+import module com.tugalsan.api.log;
+import module com.tugalsan.api.os;
+import module com.tugalsan.api.random;
+import module com.tugalsan.api.function;
+import java.nio.file.*;
+import java.util.*;
 import java.util.List;
 
 public class TS_FileJarExecutor {
